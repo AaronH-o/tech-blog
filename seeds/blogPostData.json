@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "Introduction to JavaScript",
+    "content": "JavaScript is a programming language commonly used in web development. It allows for interactive elements on webpages and is essential for creating dynamic websites.",
+    "date_created": "2024-05-20",
+    "user_id": 2
+  },
+  {
+    "id": 2,
+    "title": "Machine Learning Basics",
+    "content": "Machine learning is a subset of artificial intelligence that focuses on the development of algorithms that enable computers to learn from and make predictions or decisions based on data.",
+    "date_created": "2024-05-18",
+    "user_id": 2
+  },
+  {
+    "id": 3,
+    "title": "The Art of Cooking",
+    "content": "Cooking is both an art and a science. It involves creativity, precision, and a deep understanding of ingredients and techniques.",
+    "date_created": "2024-05-15",
+    "user_id": 1
+  },
+  {
+    "id": 4,
+    "title": "Traveling the World: Tips and Tricks",
+    "content": "Traveling can be an enriching experience, but it also requires careful planning and preparation. Learn some tips and tricks to make your next trip unforgettable.",
+    "date_created": "2024-05-10",
+    "user_id": 4
+  }
+]

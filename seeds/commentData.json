@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "content": "Great article! Very informative.",
+    "date_created": "2024-05-21",
+    "user_id": 4,
+    "blogpost_id": 1
+  },
+  {
+    "id": 2,
+    "content": "I learned a lot from this post. Thanks for sharing!",
+    "date_created": "2024-05-19",
+    "user_id": 4,
+    "blogpost_id": 3
+  },
+  {
+    "id": 3,
+    "content": "Interesting topic. Looking forward to more content like this.",
+    "date_created": "2024-05-17",
+    "user_id": 1,
+    "blogpost_id": 2
+  },
+  {
+    "id": 4,
+    "content": "This is helpful. Keep up the good work!",
+    "date_created": "2024-05-16",
+    "user_id": 2,
+    "blogpost_id": 2
+  }
+]
