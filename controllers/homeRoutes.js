@@ -19,7 +19,33 @@ router.get('/', async (req, res) => {
 
     res.render('homepage', {
       blogPosts,
-      loggedIn: req.session.loggedIn,
+      loggedIn: req.session.logged_in,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/profile', async (req, res) => {
+  try {
+    const blogPostData = await BlogPost.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const blogPosts = blogPostData.map((blogPost) => blogPost.get({ plain:true }));
+
+    res.render('homepage', {
+      blogPosts,
+      loggedIn: req.session.logged_in,
     });
   } catch (err) {
     console.log(err);
