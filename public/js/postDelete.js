@@ -14,7 +14,7 @@ const delButtonHandler = async (event) => {
       });
 
       if (response.ok) {
-        document.location.replace('/');
+        document.location.replace('/profile');
       } else {
         const responseData = await response.json();
         alert(responseData.message || 'Failed to delete post');
