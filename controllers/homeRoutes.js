@@ -77,10 +77,13 @@ router.get('/post/:id', async (req, res) => {
 
     const comments = commentData.map((comment) => comment.get({ plain:true }));
 
+    const isCreator = req.session.user_id == post.user_id;
+
     res.render('singlepost', {
       ...post,
       comments,
-      loggedIn: req.session.logged_in
+      loggedIn: req.session.logged_in,
+      isCreator: isCreator,
     });
   } catch (err) {
     res.status(500).json(err);

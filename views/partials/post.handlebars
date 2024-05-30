@@ -6,6 +6,11 @@
     <p class="card-body">
       {{content}}
     </p>
-    <p class="card-footer">Created by {{user.name}} on {{format_date date_created}}</p>
+    <div class="card-footer">
+    <p >Created by {{user.name}} on {{format_date date_created}}</p>
+    {{#if isCreator}}
+      <button class='btn my-5 btn-sm btn-danger' data-id='{{id}}'>DELETE</button>
+    {{/if}}
+    </div>
   </div>
 </div>
