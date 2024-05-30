@@ -16,7 +16,6 @@ router.get('/', async (req, res) => {
 
     const blogPosts = blogPostData.map((blogPost) => blogPost.get({ plain:true }));
 
-
     res.render('homepage', {
       blogPosts,
       loggedIn: req.session.logged_in,
@@ -53,7 +52,43 @@ router.get('/profile', async (req, res) => {
   }
 });
 
+router.get('/post/:id', async (req, res) => {
+  try {
+    const postData = await BlogPost.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
 
+    const post = postData.get({ plain: true });
+
+    // const commentData = await Comment.findAll({
+    //   where: {
+    //     blogpost_id: req.params.id,
+    //   },
+    //   include: [
+    //     content,
+    //     {
+    //       model: User,
+    //       attributes: ['name'],
+    //     },
+    //     date_created,
+    //   ],
+    // });
+
+    // const comments = commentData.map((comment) => comment.get({ plain:true }));
+
+    res.render('singlepost', {
+      ...post,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
