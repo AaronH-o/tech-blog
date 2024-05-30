@@ -18,7 +18,7 @@ const newFormHandler = async (event) => {
       if(response.ok) {
         const data = await response.json();
         console.log(data);
-        document.location.replace('/');
+        document.location.reload();
       } else {
         alert('Failed to create post');
       }

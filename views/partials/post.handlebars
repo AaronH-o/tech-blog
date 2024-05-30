@@ -1,11 +1,11 @@
 <div class="row mb-4 list-group-item">
-  <div class="col-md-5">
-    <h2>
+  <div class="card">
+    <h2 class="card-header">
       <a class="post-title" id="{{id}}" href="/post/{{id}}">{{title}}</a>
     </h2>
-    <p>
+    <p class="card-body">
       {{content}}
     </p>
-    <p>Created by {{user.name}} on {{format_date date_created}}</p>
+    <p class="card-footer">Created by {{user.name}} on {{format_date date_created}}</p>
   </div>
 </div>
