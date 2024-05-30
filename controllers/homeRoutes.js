@@ -90,6 +90,46 @@ router.get('/post/:id', async (req, res) => {
   }
 });
 
+router.get('/post/update/:id', async (req, res) => {
+  try {
+    const postData = await BlogPost.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const post = postData.get({ plain: true });
+
+    const commentData = await Comment.findAll({
+      where: {
+        blogpost_id: req.params.id,
+      },
+      include: [
+        {model: User},
+        {model: BlogPost}
+      ],
+    });
+
+    const comments = commentData.map((comment) => comment.get({ plain:true }));
+
+    const isCreator = req.session.user_id == post.user_id;
+
+    res.render('updatepost', {
+      ...post,
+      comments,
+      loggedIn: req.session.logged_in,
+      isCreator: isCreator,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {

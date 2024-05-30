@@ -26,6 +26,22 @@ const delButtonHandler = async (event) => {
   }
 };
 
+const updateButtonHandler = async (event) => {
+  if (event.target.hasAttribute('data-id')) {
+    const id = event.target.getAttribute('data-id');
+    console.log(event.target);
+    document.location.replace(`/post/update/${id}`)
+  }
+}
+
+
+
+
 document
   .querySelector('.btn-danger')
   .addEventListener('click', delButtonHandler);
+
+
+  document
+  .querySelector('.btn-info')
+  .addEventListener('click', updateButtonHandler);

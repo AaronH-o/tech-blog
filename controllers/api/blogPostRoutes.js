@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { BlogPost } = require('../../models');
 const withAuth = require ('../../utils/auth');
 
+
 router.post('/', async (req, res) => {
   try {
     const newBlogPost = await BlogPost.create({
@@ -19,24 +20,22 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   try {
-    const updatedBlogPost = await BlogPost.findOneAndUpdate(
-      { _id: req.params.id, user_id: req.session.user_id },
-      { $set: {
-          title: req.body.title,
-          content: req.body.content,
-        }
-      },
-      { new: true }
-    );
+    const updatedBlogPost = await BlogPost.findByPk(req.params.id);
     
     if (!updatedBlogPost) {
-      return res.status(404).json({ message: 'Blog post not found' });
+      return res.status(404).json({ error: 'Blog post not found' });
     }
 
+    await updatedBlogPost.update({
+      title: req.body.title,
+      content: req.body.content
+    });
+
+    console.log(updatedBlogPost);
     res.status(200).json(updatedBlogPost);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: 'Internal server error' });
+    console.log(err);
+    res.status(500).json(err);
   }
 });
 
