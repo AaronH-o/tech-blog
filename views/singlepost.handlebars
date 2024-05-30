@@ -2,3 +2,7 @@
 {{#each comments as |comment| }}
   {{> comment}}
 {{/each}}
+
+{{#if loggedIn}}
+  {{> commentCreation}}
+{{/if}}

@@ -2,6 +2,9 @@
 {{#if loggedIn}}
   {{> postCreation}}
 {{/if}}
+
+<ul class="list-group list-group-flush">
 {{#each blogPosts as |blogPost| }}
   {{> post}}
 {{/each}}
+</ul>
