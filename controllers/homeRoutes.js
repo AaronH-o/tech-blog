@@ -65,24 +65,21 @@ router.get('/post/:id', async (req, res) => {
 
     const post = postData.get({ plain: true });
 
-    // const commentData = await Comment.findAll({
-    //   where: {
-    //     blogpost_id: req.params.id,
-    //   },
-    //   include: [
-    //     content,
-    //     {
-    //       model: User,
-    //       attributes: ['name'],
-    //     },
-    //     date_created,
-    //   ],
-    // });
+    const commentData = await Comment.findAll({
+      where: {
+        blogpost_id: req.params.id,
+      },
+      include: [
+        {model: User},
+        {model: BlogPost}
+      ],
+    });
 
-    // const comments = commentData.map((comment) => comment.get({ plain:true }));
+    const comments = commentData.map((comment) => comment.get({ plain:true }));
 
     res.render('singlepost', {
       ...post,
+      comments,
       logged_in: req.session.logged_in
     });
   } catch (err) {
