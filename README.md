@@ -1,6 +1,8 @@
 # Tech Blog
 
-Tech Blog is a full-stack web application designed for developers to publish their blog posts and interact with other developers' posts through comments. The application follows the MVC (Model-View-Controller) paradigm for its architectural structure and utilizes various technologies including Handlebars.js, Sequelize ORM, and express-session npm package for authentication. The application is deployed on Heroku for easy access.
+## Description
+
+This is a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. This application follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
 
 ## Features
 
@@ -20,45 +22,9 @@ Tech Blog is a full-stack web application designed for developers to publish the
 - **HTML/CSS**: Frontend languages for structuring and styling the user interface.
 - **JavaScript**: Programming language used for client-side interactions and dynamic content rendering.
 
-## Getting Started
-
-To run the Tech Blog locally, follow these steps:
-
-1. Clone the repository:
-
-```bash
-git clone <repository-url>
-```
-
-2. Install dependencies:
-
-```bash
-cd 
-npm install
-```
-
-3. Set up the database:
-
-   - Create a PostgreSQL database.
-   - Update the database configuration in `config/config.json` file with your database credentials.
-
-4. Run migrations to create the database tables:
-
-```bash
-npx sequelize-cli db:migrate
-```
-
-5. Start the server:
-
-```bash
-npm start
-```
-
-6. Access the application in your web browser at `http://localhost:3000`.
-
 ## Deployment
 
-The Developer's Blog CMS is deployed on Heroku for easy access. You can access the live application [here](#).
+The Tech Blog is deployed on Heroku for easy access. You can access the live application [here](https://aaron-tech-blog-d16e2bba3683.herokuapp.com/).
 
 To deploy the application to Heroku, follow these steps:
 
@@ -75,9 +41,16 @@ git push heroku master
 
 7. Once the deployment is complete, open the application in your web browser using the Heroku app URL.
 
+## Screenshots
+
+![Tech Blog Homepage](assets\screenshots\tech-blog-homepage.png)
+
+![Tech Blog Post](assets\screenshots\tech-blog-post.png)
+
+
 ## Contributing
 
-Contributions are welcome! If you would like to contribute to the Developer's Blog CMS, please fork the repository and submit a pull request with your changes.
+Contributions are welcome! If you would like to contribute to the Tech Blog, please fork the repository and submit a pull request with your changes.
 
 ## License
 
