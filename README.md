@@ -45,7 +45,7 @@ git push heroku master
 
 ![Tech Blog Homepage](./assets/screenshots/tech-blog-homepage.png)
 
-![Tech Blog Post](.assets/screenshots/tech-blog-post.png)
+![Tech Blog Post](./assets/screenshots/tech-blog-post.png)
 
 
 ## Contributing
